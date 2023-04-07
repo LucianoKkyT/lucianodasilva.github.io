@@ -1,0 +1,41 @@
+body {
+  font-family: "Fira sans", Arial, Helvetica, sans-serif;
+  margin: 0px;
+  color: #141414;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0px;
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.subtitulo {
+  /* Subtitulo esta na classe Global porque é uma classe que iremos reapoveitar as estilizações em outras partes*/
+  font-size: 8rem;
+  line-height: 1; /*Altura de linha*/
+  text-transform: uppercase; /*Para deixar tudo maiúsculo*/
+  word-break: break-all; /*Para quebrar as palavras*/
+  max-width: 4ch; /*Para qubrar em 4 caracteres(ch)*/
+}
+
+@media (max-width: 800px) {
+  .subtitulo {
+    font-size: 3rem;
+    text-transform: capitalize;
+    max-width: initial !important;
+  }
+}

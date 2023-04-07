@@ -1,0 +1,159 @@
+.formacao {
+  background: #141414;
+  color: #ffffff;
+}
+
+.formacao-container {
+  max-width: 1200px;
+  padding: 120px 20px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 100px;
+  position: relative;
+}
+
+.formacao-container::after {
+  /* Para colocar o outro detalhe de verde na Formação*/
+  content: "";
+  display: block;
+  width: 130px;
+  height: 100px;
+  background: url(../img/detalhe.svg) no-repeat center;
+  position: absolute;
+  bottom: -50px;
+  left: 20px;
+}
+
+.formacao .subtitulo {
+  color: #000000;
+  max-width: 5ch; /*Para dividir o icone Formação em duas fileiras de 4 letras*/
+}
+
+.formacao-texto {
+  font-size: 1.5rem;
+  line-height: 1.33;
+  max-width: 40ch; /*Para a linha exibir 40 caracteres*/
+  margin-bottom: 60px;
+  color: #a3a3a3;
+}
+
+.formacao-texto strong {
+  color: #ffffff;
+}
+
+.faculdade-lista {
+  display: flex; /*Pra ficar um ao lado do outro*/
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 60px; /*Margin de baixo*/
+}
+
+.faculdade {
+  flex: 1; /*Se o elemento não for display-flex ele tentatá ocupar todo espaço do conteúdo. Usa-se "flex" para deixar um ao lado do outro do mesmo tamanho*/
+  background: #000000;
+  padding: 20px;
+  border-radius: 4px;
+  display: flex; /*Alteramos a classe dele para que possamos mudar o seu posicionamento, visto que o mesmo é um span e não estava assumindo o margin-botton*/
+  flex-direction: column;
+}
+
+.faculdade-tipo {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  color: #a3a3a3;
+  margin-bottom: 10px;
+}
+
+.faculdade-curso {
+  font-size: 1.125rem;
+  line-height: 1.4;
+  margin-bottom: 40px;
+  position: relative; /*Para criar um pseudo-elemento ao lado*/
+  flex: 1; /*Para fazer o ítem do display flex da formação crescer o máximo que puder*/
+}
+
+.faculdade-curso::before {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(#b6f829, #67dd0a);
+  position: absolute; /*Tira o elemento do fluxo do layout*/
+  /*top: 20px; Não precisamos dessa tag. Tiramos para ela se alinhar ao parágrafo*/
+  left: -24px; /*Negativo para que ele fique por fora do elemento. O ítem tem 20 de padding e o span tem 4, por isso o valor é de -24.*/
+}
+
+.faculdade-instituicao {
+  font-size: 1.125rem;
+  color: #a3a3a3;
+}
+
+.cursos {
+  margin-bottom: 60px;
+}
+
+.formacao-extra h3 {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: #8f8f8f;
+  text-transform: uppercase;
+  margin-bottom: 30px; /*Para separar o conteúdo do título*/
+  position: relative; /* Para que depois possamos posicionar um ítem ao lado*/
+}
+
+.formacao-extra h3::before {
+  /* Colocando o ítem como um pseudo-elemento*/
+  display: block;
+  content: ""; /*A propriedade CSS content é usada com os pseudoelementos ::before e ::after para gerar conteúdo em um elemento. Objetos inseridos usando a propriedade content são elementos substituídos*/
+  width: 24px; /* Colocando o mesmo tamanho da imagem que será inserida*/
+  height: 24px;
+  position: absolute; /*Para colocar a imagem ao lado do texto*/
+  left: -36px; /* Estamos afastando o item para a esquerda em -12px, porém, no .formacao-extra::h3 já havíamos dado 24px. Então, para afastar o item à esquerda teremos que somar 24 + 12 e colocar -36, assim ele se moverá para a esquerda*/
+  top: -4px; /*Para subir um pouco o ícone e alinhar ao parágrafo*/
+}
+
+.cursos h3::before {
+  /*Pra colocar o ícone de Cursos. Isso soma-se ao estilo aplicado acima*/
+  background: url(../img/cursos.svg) no-repeat center center;
+}
+
+.idiomas h3::before {
+  /*Pra colocar o ícone de Idiomas. Isso soma-se ao estilo aplicado acima*/
+  background: url(../img/idiomas.svg) no-repeat center center;
+}
+
+.formacao-extra li {
+  font-size: 1.125rem;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.formacao-extra span {
+  color: #8f8f8f;
+}
+
+.cursos li {
+  display: flex; /*Para que eu possa preparar para jogar as horas para o canto direito*/
+  justify-content: space-between; /* Para jogar as horas para o canto direito*/
+}
+
+@media (max-width: 800px) {
+  .formacao-container {
+    grid-template-columns: 1fr;
+    padding: 60px 20px;
+    gap: 40px;
+  }
+
+  .fomacao .subtitulo {
+    color: #ffffff;
+  }
+  .formacao-texto {
+    font-size: 1.25rem;
+  }
+
+  .formacao-extra h3::before {
+    position: initial;
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,67 @@
+.introducao {
+  max-width: 1200px; /*Para definir o tamanho do site*/
+  padding: 40px 20px; /*Espaçamento entre os elementos*/
+  margin: 0 auto;
+  display: grid; /*Para colocar um elemento ao lado do outro*/
+  grid-template-columns: 1fr 2fr; /*Para dividir as colunas em tamanhos diferentes*/
+  gap: 100px;
+  align-items: center; /*Para alinhar o conteúdo ao centro*/
+}
+
+.introducao h1 {
+  font-size: 4.5rem;
+  line-height: 1.125; /*Multiplicação do font-size diretamente (4.5*16*1.125=81px)*/
+  margin-bottom: 30px;
+  position: relative; /*Para que a imagem do detalhe não suba para o topo (h1 é pai)*/
+}
+
+.introducao h1::before {
+  content: "";
+  display: block;
+  width: 130px;
+  height: 100px;
+  background: url(../img/detalhe.svg) no-repeat center;
+  position: absolute; /*Para sobrepor a imagem*/
+  top: -15px; /*Fica alinhado ao topo do elemento pai (h1)*/
+  left: -40px; /*Vou testando os valores até posicionar onde desejo*/
+  z-index: -1; /*Para jogar o elemento para trás dp parágrafo*/
+}
+
+.introducao p {
+  font-size: 1.5rem; /*Alterando o tamanho da fonte do parágrafo*/
+  color: #525252; /*Alterando a cor da fonte do parágrafo*/
+}
+
+/*Agora vamos criar um media para quebrar as colunas quando diminuirmos o tamanho do site*/
+
+@media (max-width: 1000px) {
+  .introducao h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 800px) {
+  /*Ajustando ainda mais o tamanho da fonte ao diminuir o site*/
+  .introducao {
+    grid-template-columns: 1fr 1fr; /*A imagem e o texto serão proporcionais*/
+    gap: 40px; /*Diminui o espaço entre os elementos já que diminuiu o tamanho*/
+  }
+  .introducao h1 {
+    font-size: 2rem;
+  }
+  .introducao h1::before {
+    /*Diminuindo o tamanho do detalhe verde e amarelo*/
+    width: 30px;
+    height: 10px;
+    left: 0px;
+  }
+}
+
+@media (max-width: 400px) {
+  .introducao {
+    grid-template-columns: 1fr;
+  }
+  .introducao img {
+    display: none;
+  }
+}
